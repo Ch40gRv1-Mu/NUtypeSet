@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.nutypeset.mapper.WindowMapper">
+    <select id="find" parameterType="com.example.nutypeset.model.entity.Window" resultType="com.example.nutypeset.model.entity.Window">
+        select * from window where fid = #{fid} and wid = #{wid}
+    </select>
+
+    <insert id="add" parameterType="com.example.nutypeset.model.entity.Window">
+        insert into user values (#{id},#{username},#{password})
+    </insert>
+
+    <update id="update" >
+        update user set windowType=#{windowType}, code=#{windowType},otherParameters=#{windowType} where fid=#{fid} and wid=#{wid}
+    </update>
+</mapper>

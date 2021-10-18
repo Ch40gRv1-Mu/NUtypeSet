@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    prefix: classpath:/static/
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://1.116.120.225:3306/nutypesetmysql?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT&autoReconnect=true
+    username: root
+    password: Very570ngp@55w0rd
+  web:
+    resources:
+      static-locations:
+mybatis:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+

@@ -1,0 +1,11 @@
+amsmath;%数学公式
+graphicx;%插图
+xcolor;%颜色
+ctex;%中文
+xecjk;%中文
+listings;%code
+float;%fixed position
+parskip;%LaTeX 用/parskip表示段距，我一般把它设为1ex
+amsmath,amssymb;%数学公式
+inputenc;utf8%编码方式
+babel;english%具有多语种处理功能的宏包

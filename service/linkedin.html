@@ -1,0 +1,61 @@
+
+
+
+<script type="text/javascript" src="http://platform.linkedin.com/in.js">
+api_key: ****************
+authorize: true
+onLoad: onLinkedInLoad
+scope: r_basicprofile r_emailaddress r_fullprofile
+</script>
+<script type="text/javascript">
+    function onLinkedInLoad() {
+        IN.Event.on(IN, "auth", onLinkedInAuth);
+    }
+    function onLinkedInAuth() {
+        IN.API.Profile("me")
+.fields("firstName", "lastName", "industry", "location:(name)", "picture-url", "headline", "summary", "num-connections", "public-profile-url", "distance", "positions", "email-address", "educations", "date-of-birth")
+.result(displayProfiles)
+.error(displayProfilesErrors);
+    }
+
+        function displayProfiles(profiles) {
+            member = profiles.values[0];
+
+           // alert(member.educations._total);
+         // your School Name  alert(member.educations.values[0].schoolName);
+           // 2010 alert(member.educations.values[0].startDate.year);
+
+            //  BCA alert(member.educations.values[1].degree);
+            // C.S.S University  alert(member.educations.values[1].schoolName);
+          // Heigher Secondry  alert(member.educations.values[2].degree);
+     // U.P.Board       alert(member.educations.values[2].schoolName);
+        document.getElementById("lblName").innerHTML = member.firstName + " " + member.lastName + " Location is " + member.location.name;
+        document.getElementById("imgProfile").src = member.pictureUrl;
+        document.getElementById("lblEmail").innerHTML = member.emailAddress;
+        document.getElementById("lblProfile").innerHTML = member.publicProfileUrl;
+        document.getElementById("lblindustry").innerHTML = member.industry;
+        document.getElementById("lbleducations").innerHTML = member.educations;
+        document.getElementById("lblday").innerHTML = member.dateOfBirth.day;
+        document.getElementById("lblmonth").innerHTML = member.dateOfBirth.month;
+        document.getElementById("lblyear").innerHTML = member.dateOfBirth.year;
+        document.getElementById("lbltotal").innerHTML = member.educations._total;
+
+        document.getElementById("lbldegree").innerHTML = member.educations.values[0].degree;
+
+
+        document.getElementById("lbldate").innerHTML = member.educations.values[0].endDate.year;
+        document.getElementById("lblId").innerHTML = member.educations.values[0].id;
+        document.getElementById("lblschool").innerHTML = member.educations.values[0].startDate.year;
+
+//        member = profiles.values[1];
+//        document.getElementById("lbldateOfBirth1").value = member.dateOfBirth.day;
+
+
+    }
+    function displayProfilesErrors(error) {
+        profilesDiv = document.getElementById("profiles");
+        profilesDiv.innerHTML = error.message;
+        console.log(error);
+    }
+   
+</script>
